@@ -14,24 +14,20 @@ use IEEE.STD_LOGIC_1164.ALL;
 --use UNISIM.VComponents.all;
 
 
-
-
---declare mux entity-------------------------------------------------------
 entity mux2to1 is
-port ( input1, input2: in std_logic_vector(7 downto 0);
+port ( input1, input2: in std_logic_vector(7 downto 0);           --declare mux entity
         sel: in std_logic;
         muxOut: out std_logic_vector(7 downto 0));
 end mux2to1;
 
---declare mux architecture
-architecture my_mux of mux2to1 is
-begin
---declare mux
-with sel select
-    muxOut <= input1 when '1',
-              input2 when '0',
-             (others => '0') when others;
-end my_mux;   
+
+architecture my_mux of mux2to1 is                       --declare mux architecture
+        begin                                                   --declare mux
+                with sel select         
+                    muxOut <= input1 when '1',
+                              input2 when '0',
+                             (others => '0') when others;
+                end my_mux;   
 --end mux entity-----------------------------------------------------------
 
 
