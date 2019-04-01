@@ -1,5 +1,5 @@
 
---HERE WE USE PROCESS STATEMENT
+--HERE WE USE PROCESS-STATEMENT method. This method is very unpopular 
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
@@ -14,10 +14,11 @@ use IEEE.STD_LOGIC_1164.ALL;
 --use UNISIM.VComponents.all;
 
 
-entity mux2to1 is
-port ( input1, input2: in std_logic_vector(7 downto 0);           --declare mux entity
-        sel: in std_logic;
-        muxOut: out std_logic_vector(7 downto 0));
+entity mux2to1 is--declare mux entity
+        port ( 
+                input1, input2: in std_logic_vector(7 downto 0);           
+                sel: in std_logic;
+                muxOut: out std_logic_vector(7 downto 0));
 end mux2to1;
 
 
@@ -30,25 +31,23 @@ architecture my_mux of mux2to1 is                       --declare mux architectu
                 end my_mux;   
 --end mux entity-----------------------------------------------------------
 
+---------------------------------------------------------------------------------------------------
 
 
---redeclare library
-library IEEE;
+library IEEE;                                   --redeclare library
 use IEEE.STD_LOGIC_1164.ALL;
 
---declare register entity--------------------------------------------------
-entity REG is
+entity REG is                           --declare register entity
 port ( reg_IN: in std_logic_vector(7 downto 0);
         LD, CLK: in std_logic;
         reg_OUT: out std_logic_vector(7 downto 0));
 end REG;
 
---declare register architecture
-architecture my_REG of REG is
+architecture my_REG of REG is--declare register architecture
+
 begin
 
---process
-process(clk)
+process(clk)process
 begin
     if(rising_edge(clk)) then
         if(ld = '1') then
@@ -59,10 +58,11 @@ end process;
 end my_reg; 
 --end register entity------------------------------------------------------
 
+---------------------------------------------------------------------------------------------------
 
---declare andGate entity---------------------------------------------------
 --redeclare library
-library IEEE;
+library IEEE;                                   --declare andGate entity-
+
 use IEEE.STD_LOGIC_1164.ALL;
 
 entity andGate is
