@@ -26,34 +26,23 @@ architecture Behavioral of problem6_if is
             process(input, sel)                   --process
                     begin
                         if(sel = "000") then
-                               output <= input(0);
-                      
+                                    output <= input(0);
                         elsif(sel = "001") then           --Remember that "elsif" is still part of the "main-if"
-                                output <= input(1);
-                      
+                                    output <= input(1);
                         elsif(sel = "010") then
-                               output <= input(2);
-                      
+                                 output <= input(2);
                         elsif(sel = "011") then
-                               output <= input(3);
-                      
+                                    output <= input(3);
                         elsif(sel = "100") then
-                               output <= input(4);
-                      
+                                    output <= input(4);
                         elsif(sel = "101") then
-                                output <= input(5);
-                      
+                                    output <= input(5);
                         elsif(sel = "110") then
-                               output <= input(6);
-                      
+                                    output <= input(6);
                         elsif(sel = "111") then
-                               output <= input(7);
-                      
+                                    output <= input(7);
                         else
-                            output <= '0';
-                        end if;                         --This ends the Main if 
-
-
+                                    output <= '0';
+                        end if;                         --This ends the main-if 
             end process;
-
 end Behavioral;
