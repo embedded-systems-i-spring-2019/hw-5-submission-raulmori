@@ -1,4 +1,7 @@
-ibrary IEEE;
+
+In here we use the case method
+
+library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
 -- Uncomment the following library declaration if using
@@ -18,25 +21,19 @@ end problem6_case;
 
 architecture Behavioral of problem6_case is
 
-begin
-
-
-    --process
-    process(input, sel)
-        begin
-            case(sel) is
-                when "000" => output <= input(0);
-                when "001" => output <= input(1);
-                when "010" => output <= input(2);
-                when "011" => output <= input(3);
-                when "100" => output <= input(4);
-                when "101" => output <= input(5);
-                when "110" => output <= input(6);
-                when "111" => output <= input(7);
-                when others => output <= '0';
-                end case;
-                 
-    end process;
-
-
+      begin
+            process(input, sel)           --process
+                  begin
+                      case(sel) is                            --This is the "case method" of PROCESS-STATEMENT
+                              when "000" => output <= input(0);
+                              when "001" => output <= input(1);
+                              when "010" => output <= input(2);
+                              when "011" => output <= input(3);
+                              when "100" => output <= input(4);
+                              when "101" => output <= input(5);
+                              when "110" => output <= input(6);
+                              when "111" => output <= input(7);     --Notice we have 8 bits
+                              when others => output <= '0';        --The last outputs a "0" to eliminate bugs
+                          end case;
+            end process;
 end Behavioral;
