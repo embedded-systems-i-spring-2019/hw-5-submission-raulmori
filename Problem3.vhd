@@ -1,5 +1,4 @@
-----------------------------------------------------------------------------------
-
+--Notice in this case the concurrent metho is much simpler
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
@@ -14,23 +13,22 @@ use IEEE.STD_LOGIC_1164.ALL;
 --use UNISIM.VComponents.all;
 
 entity problem3 is
-  Port (A, B : in std_logic_vector(1 downto 0);
-        D: in std_logic;
-        E_out : out std_logic);
+      Port (
+            A, B : in std_logic_vector(1 downto 0);
+            D: in std_logic;
+            E_out : out std_logic);
 end problem3;
 
+  
 architecture Behavioral of problem3 is
 
---intermediate signals
-signal A_out, B_out, C_out : std_logic;
+      signal A_out, B_out, C_out : std_logic;       --intermediate signals
 
-begin
-
---concurrent architecture
-A_out <= A(0) AND A(1);
-B_out <= B(0) OR B(1);
-C_out <= B(1) AND (not D);
-E_out <= A_out OR B_out OR C_out;
+            begin
+                  A_out <= A(0) AND A(1);     --concurrent architecture
+                  B_out <= B(0) OR B(1);
+                  C_out <= B(1) AND (not D);
+                  E_out <= A_out OR B_out OR C_out;
 
 
 end Behavioral;
