@@ -1,3 +1,5 @@
+--Here We do the same problem using "PROCESS-STATEMENT" using the "if-method"
+
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
@@ -11,39 +13,47 @@ use IEEE.STD_LOGIC_1164.ALL;
 --use UNISIM.VComponents.all;
 
 entity problem6_if is
-  Port (input : in std_logic_vector(7 downto 0);
-        sel : in std_logic_vector(2 downto 0);
-        output : out std_logic );
+      Port (
+              input : in std_logic_vector(7 downto 0);
+              sel : in std_logic_vector(2 downto 0);
+              output : out std_logic );
 end problem6_if;
 
+  
 architecture Behavioral of problem6_if is
 
-begin
+      begin
+            process(input, sel)                   --process
+                    begin
+                        if(sel = "000") then
+                               output <= input(0);
+                      
+                        elsif(sel = "001") then           --Remember that "elsif" is still part of the "main-if"
+                                output <= input(1);
+                      
+                        elsif(sel = "010") then
+                               output <= input(2);
+                      
+                        elsif(sel = "011") then
+                               output <= input(3);
+                      
+                        elsif(sel = "100") then
+                               output <= input(4);
+                      
+                        elsif(sel = "101") then
+                                output <= input(5);
+                      
+                        elsif(sel = "110") then
+                               output <= input(6);
+                      
+                        elsif(sel = "111") then
+                               output <= input(7);
+                      
+                        else
+                            output <= '0';
+                        end if;                         --This ends the Main if 
 
-    --process
-    process(input, sel)
-        begin
-            if(sel = "000") then
-                output <= input(0);
-            elsif(sel = "001") then
-                output <= input(1);
-            elsif(sel = "010") then
-                output <= input(2);
-            elsif(sel = "011") then
-                output <= input(3);
-            elsif(sel = "100") then
-                output <= input(4);
-            elsif(sel = "101") then
-                output <= input(5);
-            elsif(sel = "110") then
-                output <= input(6);
-            elsif(sel = "111") then
-                output <= input(7);
-            else
-                output <= '0';
-            end if;
-        
-        
-    end process;
+
+            end process;
 
 end Behavioral;
