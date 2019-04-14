@@ -14,39 +14,39 @@ use IEEE.STD_LOGIC_1164.ALL;
 --use UNISIM.VComponents.all;
 
 entity circuit is
-  Port (A, B : in std_logic_vector(1 downto 0);
+  Port (A, B : in std_logic_vector(1 downto 0);  --These inputs are multiple bits
         D: in std_logic;
-        E_out : out std_logic);
+        E_out : out std_logic);     --The output is only 1 bit
 end circuit;
 
 architecture Behavioral of circuit is
 
-    signal A_out, B_out, C_out : std_logic;       --intermediate signals
-
-    begin
-        process(A, B, D)          --Notice that for the entire circuit we use only ONE +process
-              begin
+    signal A_out, B_out, C_out : std_logic;       --Notice here that we create 3 different temporary signals
+    
+    begin               --Notice that for the entire circuit we use only ONE +process
+        process(A, B, D)          --Notice here that we declare the three inputs for the process
+              begin         --For this specific problem we have FOUR logic combinations
                 
-              if((A(0) AND A(1)) = '1') then      ----A out. The beauty of VHDL is that it lets us skip trust tables. The system assumes we have an AND gate
-                   A_out <= '1';
+              if((A(0) AND A(1)) = '1') then      --Notice here that we call the Enitity-inputs.
+                   A_out <= '1';            --Notice here that we are calling the temporary-signal
               else
                    A_out <= '0';
               end if;
 
-              if((B(0) OR B(1)) = '1') then       --B_out
+              if((B(0) OR B(1)) = '1') then       --This is the second logic combination. B_out
                     B_out <= '1';
               else
                     B_out <= '0';
               end if;
 
-              if((B(1) AND (not D)) = '1') then     --C_out
+              if((B(1) AND (not D)) = '1') then     --This is the third logic combination. C_out
                    C_out <= '1';
               else
                     C_out <= '0';
               end if;
 
 
-              if((A_out OR B_out OR C_out) = '1') then      --E_out
+              if((A_out OR B_out OR C_out) = '1') then      --.This is the Last logic combination. E_out
                    E_out <= '1';
               else
                     E_out <= '0';
