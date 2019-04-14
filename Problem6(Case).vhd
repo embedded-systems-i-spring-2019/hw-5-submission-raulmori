@@ -1,5 +1,6 @@
-
 --In here we use the case method
+--Using the IF-MAIN with the SUB-CASE is better VHDL programming practice (Remember more code is better)
+--In this case we don't have to use it because there is not a CLOCK-ENABLE (CE)
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
