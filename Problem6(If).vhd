@@ -1,4 +1,6 @@
 --Here We do the same problem using "PROCESS-STATEMENT" using the "if-method"
+--The only Differe is that we don't have a CLOCK-ENABLE (CE)
+--This is the Exact same as EXAMPLE#11 from Chapter8
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
@@ -12,37 +14,37 @@ use IEEE.STD_LOGIC_1164.ALL;
 --library UNISIM;
 --use UNISIM.VComponents.all;
 
-entity problem6_if is
+entity circuit is
       Port (
-              input : in std_logic_vector(7 downto 0);
-              sel : in std_logic_vector(2 downto 0);
-              output : out std_logic );
-end problem6_if;
+              DATA_in : in std_logic_vector(7 downto 0);
+              SEL : in std_logic_vector(2 downto 0);
+              Output : out std_logic );
+end circuit;
 
   
-architecture Behavioral of problem6_if is
+architecture Behavioral of circuit is
 
       begin
-            process(input, sel)                   --process
+            process(DATA_in, SEL)                   --process
                     begin
-                        if(sel = "000") then
-                                    output <= input(0);
+                        if   (sel = "000") then
+                                    output <= DATA_in(0);
                         elsif(sel = "001") then           --Remember that "elsif" is still part of the "main-if"
-                                    output <= input(1);
+                                    output <= DATA_in(1);
                         elsif(sel = "010") then
-                                 output <= input(2);
+                                    output <= DATA_in(2);
                         elsif(sel = "011") then
-                                    output <= input(3);
+                                    output <= DATA_in(3);
                         elsif(sel = "100") then
-                                    output <= input(4);
+                                    output <= DATA_in(4);
                         elsif(sel = "101") then
-                                    output <= input(5);
+                                    output <= DATA_in(5);
                         elsif(sel = "110") then
-                                    output <= input(6);
+                                    output <= DATA_in(6);
                         elsif(sel = "111") then
-                                    output <= input(7);
+                                    output <= DATA_in(7);
                         else
-                                    output <= '0';
+                                    Output <= '0';
                         end if;                         --This ends the main-if 
             end process;
 end Behavioral;
