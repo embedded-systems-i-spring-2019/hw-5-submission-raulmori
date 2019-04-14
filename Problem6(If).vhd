@@ -27,21 +27,21 @@ architecture Behavioral of circuit is
       begin
             process(DATA_in, SEL)                   --process
                     begin
-                        if   (sel = "000") then
+                        if   (SEL = "000") then
                                     output <= DATA_in(0);
-                        elsif(sel = "001") then           --Remember that "elsif" is still part of the "main-if"
+                        elsif(SEL = "001") then           --Remember that "elsif" is still part of the "main-if"
                                     output <= DATA_in(1);
-                        elsif(sel = "010") then
+                        elsif(SEL = "010") then
                                     output <= DATA_in(2);
-                        elsif(sel = "011") then
+                        elsif(SEL = "011") then
                                     output <= DATA_in(3);
-                        elsif(sel = "100") then
+                        elsif(SEL = "100") then
                                     output <= DATA_in(4);
-                        elsif(sel = "101") then
+                        elsif(SEL = "101") then
                                     output <= DATA_in(5);
-                        elsif(sel = "110") then
+                        elsif(SEL = "110") then
                                     output <= DATA_in(6);
-                        elsif(sel = "111") then
+                        elsif(SEL = "111") then
                                     output <= DATA_in(7);
                         else
                                     Output <= '0';
