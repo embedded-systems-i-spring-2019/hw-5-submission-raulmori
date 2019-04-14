@@ -13,13 +13,13 @@ use IEEE.STD_LOGIC_1164.ALL;
 --library UNISIM;
 --use UNISIM.VComponents.all;
 
-entity problem2_if is
+entity circuit is
   Port (A, B : in std_logic_vector(1 downto 0);
         D: in std_logic;
         E_out : out std_logic);
-end problem2_if;
+end circuit;
 
-architecture Behavioral of problem2_if is
+architecture Behavioral of circuit is
 
     signal A_out, B_out, C_out : std_logic;       --intermediate signals
 
