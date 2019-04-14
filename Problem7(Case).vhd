@@ -40,7 +40,8 @@ architecture Behavioral of circuit is
                                          output <= "11111101";
                                   when "111" =>
                                          output <= "11111110";
-                                  when others => output <= "11111111";
+                                  when others => 
+                                         output <= "11111111";
                             end case;
               end process;
 
