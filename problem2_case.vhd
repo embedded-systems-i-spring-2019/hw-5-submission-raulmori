@@ -21,7 +21,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 
 entity circuit is
       Port ( 
-               A, B : in std_logic_vector(1 downto 0);
+               A, B : in std_logic_vector(1 downto 0);          --Notice that this is 2-bits
                D : in std_logic;
                E_out : out std_logic);
 end circuit;
@@ -35,7 +35,7 @@ architecture Behavioral of circuit is
 
     begin       --combines the indivual bits into a multiple-bit bundle, using the symbol "&"
     
-        A_in <= A(0) & A(1);      --Here we save LOGIC COMBINATIONS of ENTITY-INPUTS into TEMPORARY-SIGNALS
+        A_in <= A(0) & A(1);      --Here we save LOGIC COMBINATIONS of ENTITY-INPUTS into TEMPORARY-SIGNALS. Remember the NUMBER OF BITS for the values on the right must all be the same.
         B_in <= B(0) & B(1);        --Here we give the gates a HIGH or LOW input
         --C_in <= B(1) &  (not D);       --We could simply skip the "D" GATE PROCESS, by negating the Original "D" Gate directly. (however this is not good VHDL programming)
         C_in <= B(1) &  (D_out);    --This is for the output of the "C" GATE. Remember "D" GATE has its own process
