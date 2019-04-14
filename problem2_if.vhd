@@ -1,5 +1,7 @@
-----------------------------------------------------------------------------------
-
+--Notice in here that we were given a special type of ENTITY-INPUT. 
+--For the "A" part, we will assume a HIGH (1) and LOW (0) inputs.
+--For the "B" part, we will assume a HIGH (1) and LOW (0) inputs.
+--Notice that for "D" we don't assume High or LOW, but we use a variable compliment
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
