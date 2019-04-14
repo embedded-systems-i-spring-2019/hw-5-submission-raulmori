@@ -1,4 +1,4 @@
-
+--Remember that in this case we were not given HIHGH or LOW volume for the ENTITY-INPUTS. So we will assume HIGH or LOW values
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
@@ -12,15 +12,15 @@ use IEEE.STD_LOGIC_1164.ALL;
 --library UNISIM;
 --use UNISIM.VComponents.all;
 
-entity problem2_case is
+entity circuit is
       Port ( 
                A, B : in std_logic_vector(1 downto 0);
                D : in std_logic;
                E_out : out std_logic);
-end problem2_case;
+end circuit;
 
   
-architecture Behavioral of problem2_case is
+architecture Behavioral of circuit is
 
     signal A_out, B_out, C_out, D_out : std_logic;          --intermediate signals
     signal A_in, B_in, C_in : std_logic_vector(1 downto 0);
@@ -28,7 +28,7 @@ architecture Behavioral of problem2_case is
 
     begin
 
-    A_in <= A(0) & A(1);      --group signals
+    A_in <= A(0) & A(1);      --Here we save LOGIC COMBINATIONS of ENTITY-INPUTS into TEMPORARY-SIGNALS
     B_in <= B(0) & B(1);
     C_in <= B(1) & D_out;
     E_in <= A_out & B_out & C_out;
