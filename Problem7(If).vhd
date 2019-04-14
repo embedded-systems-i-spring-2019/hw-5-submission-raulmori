@@ -1,3 +1,5 @@
+--Remember that a DECODER is the opposite of a MULTIPLEXER
+
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
@@ -10,19 +12,19 @@ use IEEE.STD_LOGIC_1164.ALL;
 --library UNISIM;
 --use UNISIM.VComponents.all;
 
-entity problem7_if is
+entity circuit is
         Port (
-              input : in std_logic_vector(2 downto 0);
-              output: out std_logic_vector(7 downto 0));
-end problem7_if;
+              input : in std_logic_vector(2 downto 0);      --Notice here the SEL from the previous example became the INPUT
+              output: out std_logic_vector(7 downto 0));    --Notice here that the INPUT from the previous example became the OUTPUT
+end circuit;
 
   
-architecture Behavioral of problem7_if is
+architecture Behavioral of circuit is
         begin
               process(input)            --process
                       begin
-                            if(input = "000") then
-                                      output <= "01111111";
+                            if   (input = "000") then
+                                      output <= "01111111";     --Notice here that the output is represented as an 8-bit identifier
                             elsif(input = "001") then
                                       output <= "10111111";   
                             elsif(input = "010") then
