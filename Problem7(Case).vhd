@@ -12,26 +12,34 @@ use IEEE.STD_LOGIC_1164.ALL;
 --library UNISIM;
 --use UNISIM.VComponents.all;
 
-entity problem7_case is
+entity circuit is
         Port (
                 input : in std_logic_vector(2 downto 0);
                 output: out std_logic_vector(7 downto 0));
-end problem7_case;
+end circuit;
 
   
-architecture Behavioral of problem7_case is
+architecture Behavioral of circuit is
         begin
               process(input)                              --Here we start the process for the Multiplexer
                       begin
                             case(input) is
-                                  when "000" => output <= "01111111";
-                                  when "001" => output <= "10111111";
-                                  when "010" => output <= "11011111";
-                                  when "011" => output <= "11101111";
-                                  when "100" => output <= "11110111";
-                                  when "101" => output <= "11111011";
-                                  when "110" => output <= "11111101";
-                                  when "111" => output <= "11111110";
+                                  when "000" => 
+                                        output <= "01111111";
+                                  when "001" => 
+                                        output <= "10111111";
+                                  when "010" =>
+                                         output <= "11011111";
+                                  when "011" =>
+                                         output <= "11101111";
+                                  when "100" =>
+                                         output <= "11110111";
+                                  when "101" =>
+                                         output <= "11111011";
+                                  when "110" =>
+                                         output <= "11111101";
+                                  when "111" =>
+                                         output <= "11111110";
                                   when others => output <= "11111111";
                             end case;
               end process;
